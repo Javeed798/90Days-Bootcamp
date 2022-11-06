@@ -20,7 +20,6 @@ class vegAnimal extends Animal {
 }
 
 public class PolymorphismExampleOne {
-
 	public static void main(String[] args) {
 		wildAnimal wa = new wildAnimal();
 		vegAnimal  va = new vegAnimal();
