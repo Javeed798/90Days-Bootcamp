@@ -24,10 +24,10 @@ class cargoPlane extends Plane {
 	}
 }
 
-class passengerPLane extends Plane {
+class passengerPLane extends cargoPlane {
 	
 	void fly() {
-		System.out.println("Cargo plane is flying at low heights");
+		System.out.println("Passenger plane is flying at low heights");
 	}
 	
 	void carryPassengers() {
@@ -52,10 +52,17 @@ class fighterPlane extends Plane {
 public class InheritancePLANEexample {
 	public static void main(String[] args) {
 		cargoPlane cp = new cargoPlane();
+		passengerPLane pp  = new passengerPLane();
 		cp.fly();
 		cp.takeOff();
 		cp.carryCargo();
 		cp.land();
+		
+		
+		System.out.println();
+		
+		pp.fly();
+		pp.land();
 	}
 }
 
