@@ -40,6 +40,9 @@ public class BankAccount {
             int ben_acc = sc.nextInt();
             System.out.println("Enter the transaction amount");
             int t_amount = sc.nextInt();
+
+            con.setAutoCommit(false);
+            Savepoint s = con.setSavepoint();
             PreparedStatement pstmt2 = con.prepareStatement("update account set balance = balance + ? where acc_name = ? ");
             pstmt2.setInt(1,t_amount);
             pstmt2.setInt(2,ben_acc);
@@ -69,6 +72,7 @@ public class BankAccount {
                 res2.next();
                 System.out.println("Updated balance is" + res2.getInt(4));
             } else {
+                con.rollback(s);
                 PreparedStatement pstmt5 = con.prepareStatement("select * from account where acc_name = ? ");
                 pstmt5.setInt(1,ben_acc);
                 ResultSet res2 = pstmt5.executeQuery();
