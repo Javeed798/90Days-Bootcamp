@@ -1,0 +1,14 @@
+ create table courses(
+    -> c_id varchar(5) PRIMARY KEY,
+    -> name varchar(10),
+    -> rating decimal(3,1));
+Query OK, 0 rows affected (0.33 sec)
+
+mysql> create table student(
+    -> s_id tinyint primary key,
+    -> name varchar(10),
+    -> age tinyint,
+    -> grade decimal(4,2),
+    -> c_id varchar(5),
+    -> FOREIGN KEY (c_id) REFERENCES courses (c_id)
+    -> );
